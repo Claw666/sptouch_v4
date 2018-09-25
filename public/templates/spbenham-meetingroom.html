@@ -1,0 +1,12 @@
+<div class="comp-info col s12 grow-appear">
+  <span class="comp-info-container">
+    <h2>{{$ctrl.company.meetname}}</h2>
+  </span>
+</div>
+
+<div ng-if="$ctrl.company.compbuilding == '5 Benham Road'">
+  <div svg-map-benham></div>
+</div>
+<div ng-if="$ctrl.company.compbuilding !== '5 Benham Road'">
+  <div svg-map-site></div>
+</div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="angularApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SPTouch Version Production 2VR</title>
+  <meta name="author" content="Csongor Kocsis">
+  <meta name="description" content="This is a digital signage solution for the University of Southampton, Science Park">
+  <meta name="keywords" content="digital signage, signage, marketing, touchscreen, screen">
+  <link rel="stylesheet" href="stylesheets/reset.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/main.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/font.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/materialize.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/bus.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/card.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="javascripts/app.js" type="text/javascript"></script>
+  <script src="javascripts/angular-ui-router.js" type="text/javascript"></script>
+  <script src="components/sp1vr-companies.js" type="text/javascript"></script>
+  <script src="components/sp1vr-meetingroom.js" type="text/javascript"></script>
+  <script src="components/meetings.js" type="text/javascript"></script>
+  <script src="components/transport.js" type="text/javascript"></script>
+  <script src="components/info.js" type="text/javascript"></script>
+  <script src="components/sp1vr-company.js" type="text/javascript"></script>
+  <script src="services/sp1vr-companies.js" type="text/javascript"></script>
+  <script src="javascripts/directives.js" type="text/javascript"></script>
+  <script src="javascripts/materialize.js"></script>
+  <script src="javascripts/idle-timer.min.js"></script>
+  <script defer src="javascripts/fontawesome-all.js"></script>
+  <script src="javascripts/bus.js"></script>
+</head>
+<body onload="startTime()">
+  <div class="container">
+    <!-- Page Content goes here -->
+    <div class="row equal-col">
+      <div class="col s6 logo__container">
+        <div class="logo"></div>
+      </div>
+      <div class="col s6 align-col-right">
+        <div class="time__container">
+          <div class="time__clock" id="time"></div>
+          <div class="time__date" id="date"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="menubar">
+        <div class="col s12 menu-col">
+          <a ui-sref="sort-group-1"><i class="fa fa-home fa-5x" aria-hidden="true" id="home"></i></a>
+          <div class="menu-btn" >Home</div>
+        </div>
+        <div class="col s12 menu-col">
+          <a ui-sref="meetings"><i class="fa fa-users fa-5x" aria-hidden="true" id="meetings"></i></a>
+          <div class="menu-btn" >Meetings</div>
+        </div>
+        <div class="col s12 menu-col">
+          <a ui-sref="transport"><i class="fa fa-bus fa-5x" aria-hidden="true" id="transport"></i></a>
+          <div class="menu-btn" >Transport</div>
+        </div>
+
+        <div class="col s12 menu-col">
+          <a ui-sref="info"><i class="fa fa-info-circle fa-5x" aria-hidden="true" id="info"></i></a>
+          <div class="menu-btn" >Info</div>
+        </div>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="row">
+      <div class="searchbar">
+        <div class="col s12">
+          <a ui-sref="sort-group-1"><button type="submit"  class="fil-cat search-btn waves-effect waves-light" id="btn-a-g">A - E</button></a>
+        </div>
+        <div class="col s12">
+          <a ui-sref="sort-group-2"><button type="submit"  class="fil-cat search-btn waves-effect waves-light" id="btn-h-n">F - L</button></a>
+        </div>
+        <div class="col s12">
+          <a ui-sref="sort-group-3"><button type="submit"  class="fil-cat search-btn waves-effect waves-light" id="btn-o-t">M - R</button></a>
+        </div>
+        <div class="col s12">
+          <a ui-sref="sort-group-4"><button type="submit"  class="fil-cat search-btn waves-effect waves-light" id="btn-u-z">S - Z</button></a>
+        </div>
+        <div class="col s12">
+          <a ui-sref="sort-group-5"><button type="submit"  class="fil-cat search-btn waves-effect waves-light" id="btn-0-9">0 - 9</button></a>
+        </div>
+      </div>
+    </div>
+    <ui-view></ui-view>
+  </div>
+  <script src="javascripts/clock.js"></script>
+  <script type="text/javascript">
+  (function ($) {
+      
+    $( document ).on( "idle.idleTimer", function(event, elem, obj){
+        window.location.href = "http://sptouch.csongorkocsis.me/sp1vr#!/";
+    });
+    
+    $( document ).on( "active.idleTimer", function(event, elem, obj, triggerevent){
+    });
+    
+    $.idleTimer(20000);
+    
+})(jQuery);
+</script>
+<script type="text/javascript">
+    // JS way
+    document.addEventListener('contextmenu', function(e){
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>

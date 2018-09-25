@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "BlissPro-Regular";
+    src: url('../fonts/BlissPro-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "BlissPro-Light";
+    src: url('../fonts/BlissPro-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "BlissPro-ExtraLight";
+    src: url('../fonts/BlissPro-ExtraLight.otf') format('opentype');
+}
+

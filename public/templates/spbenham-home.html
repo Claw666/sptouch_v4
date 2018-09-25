@@ -1,0 +1,8 @@
+<div style="clear: both;"></div>
+<div class="row ajx-ld-content" id="ajaxContainer">
+  <div class="tile col col-comp grow-appear" ng-repeat="company in $ctrl.companies">
+    <a ui-sref="company({ companyId: company._id })">
+    <p>{{company.compname}}</p></a>
+  </div>
+</div>
+<div svg-map-benham></div>

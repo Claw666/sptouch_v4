@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h2.page-header Companies
+  div.table-responsive
+    table.table
+      thead
+        tr
+          th Name
+          th Email Address
+          th Phone Number
+          th Building
+          th Room
+          th Logo
+          th Action
+          th
+      tbody
+        for todo in todos
+          tr
+            td.align-middle #{todo.compname}
+            td.align-middle #{todo.compemail}
+            td.align-middle #{todo.compphone}
+            td.align-middle #{todo.compbuilding}
+            td.align-middle #{todo.comproom}
+            td.align-middle 
+              if todo.complogo == 'noimage.jpg'
+                i.material-icons cancel
+              else
+                i.material-icons check
+            td 
+              form(action='/todos/destroy/#{todo._id}', method='post')
+                input.btn.btn-danger(type='submit', value='Delete')
+            td
+              a(href='/todos/#{todo._id}')
+                input.btn.btn-primary(type='submit', value='Edit')

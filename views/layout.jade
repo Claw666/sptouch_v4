@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title Dashboard
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    link(href='/stylesheets/style.css', rel='stylesheet')
+  body
+    .navbar.navbar-default(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') WayFinding
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            if user
+              li(class=(title == 'Dashboard' ? 'active' : ''))
+               a(href='/') Dashboard
+              li(class=(title == 'Companies' ? 'active' : ''))
+               a(href='/todos') Companies
+              li(class=(title == 'AddCompanies' ? 'active' : ''))
+               a(href='/todos/create') Add Company
+              li(class=(title == 'Meeting Rooms' ? 'active' : ''))
+               a(href='/meetings') Meeting Rooms
+              li(class=(title == 'Maps' ? 'active' : ''))
+               a(href='/todos/maps') Maps
+            if !user
+             li(class=(title == 'Register' ? 'active' : ''))
+               a(href='/users/register') Register
+             li(class=(title == 'Login' ? 'active' : ''))
+               a(href='/users/login') Login
+          ul.nav.navbar-nav.navbar-right
+           if user
+            li
+              img.user-profile-img.img-responsive(src="/uploads/profiles/#{user.profileimage}")
+            li
+              a #{user.username}
+            li
+              a(href='/users/logout') Logout
+
+    .container.content
+     != messages()
+     block content
+
+    footer.footer
+      p.text-muted.text-center Version: v1.0 | Created by Csongor Kocsis
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='javascripts/bootstrap.js')

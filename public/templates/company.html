@@ -1,0 +1,20 @@
+<div class="comp-info col s12 grow-appear">
+  <span class="comp-logo-container" ng-if="$ctrl.company.complogo == 'noimage.jpg'">
+    <img src="/uploads/logos/logo-placeholder.jpg">
+  </span>
+  <span class="comp-logo-container" ng-if="$ctrl.company.complogo !== 'noimage.jpg'">
+    <img src="/uploads/logos/{{$ctrl.company.complogo}}">
+  </span>
+  <span class="comp-info-container">
+    <p><i class="far fa-envelope"></i>{{$ctrl.company.compemail}}</p>
+    <p><i class="fas fa-location-arrow"></i>{{$ctrl.company.compbuilding}}</p>
+    <p><i class="fas fa-phone"></i>{{$ctrl.company.compphone}}</p>
+  </span>
+</div>
+
+<div ng-if="$ctrl.company.compbuilding == '2 Venture Road'">
+  <div svg-map-main></div>
+</div>
+<div ng-if="$ctrl.company.compbuilding !== '2 Venture Road'">
+  <div svg-map-site></div>
+</div>

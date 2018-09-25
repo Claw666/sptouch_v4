@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  .row
+    .col-lg-6
+      form(method='post', action='/todos/edit/#{todo._id}' ,enctype='multipart/form-data')
+        .form-group
+          label Name
+          input.form-control(name='compname', type='text', value='#{todo.compname}')
+        .form-group
+          label Email
+          div.input-group
+            span.input-group-addon#sizing-addon1 @
+            input.form-control(name='compemail', type='email', value='#{todo.compemail}', aria-describedby="sizing-addon1")
+        .form-group
+          label Phone
+          input.form-control(name='compphone', type='tel', value='#{todo.compphone}')
+        .form-group
+          label Building
+          select.form-control(name='compbuilding')
+            option(selected disabled) #{todo.compbuilding}
+            option(value='2 Venture Road') 2 Venture Road
+            option(value='1 Venture Road') 1 Venture Road
+            option(value='The Paddock') The Paddock
+            option(value='3 Benham Road') 3 Benham Road
+            option(value='4 Benham Road') 4 Benham Road
+            option(value='5 Benham Road') 5 Benham Road
+            option(value='Alpha House') Alpha House
+            option(value='Delta House') Delta House
+            option(value='Epsilon House') Epsilon House
+            option(value='Gamma House') Gamma House
+            option(value='Kenneth Dibben House') Kenneth Dibben House
+            option(value='Phi House') Phi House
+            option(value='University Parkway') University Parkway
+          input.form-control(type="hidden" name="hiddenbuilding" value='#{todo.compbuilding}')
+        .form-group
+          label Room Number
+          input.form-control(name='comproom', type='text', value='#{todo.comproom}')
+        .form-group
+          label Company Logo
+          input.form-control(name='complogo', type='file')
+          input.form-control(type="hidden" name="hidden" value='#{todo.complogo}')
+        div.logo-comparison
+          div.row.justify-content-md-center
+            div.preview.col-sm-3
+              h4 Current Logo
+              if todo.complogo == 'noimage.jpg'
+                img.current-logo(src="/uploads/logos/logo-placeholder.jpg")
+              else
+                img.current-logo(src="/uploads/logos/#{todo.complogo}")
+        div.btn-toolbar
+          input.btn.btn-primary(type='submit', value='Update')
+          a(href='/todos').btn.btn-default Back
+    .col-lg-6
+      ul.list-group
+        li.list-group-item.list-group-item-info 
+          p Company Names are case sensitivies. Use capital letter for the first letter! (E.g. google --- Google)
+        li.list-group-item.list-group-item-info 
+          p If no email address is available, add the following: none@none.com
+        li.list-group-item.list-group-item-info
+          p if no phone number is available, add the following: none
+        li.list-group-item.list-group-item-info
+          p Check room number at the MAP menu section

@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  .row
+    div.alert.alert-warning
+      p 
+        strong WARNING!
+        |  Now all changes take affect on the wayfinding system! If you remove a meeting room, it will disappear from the screens as well.
+  .row
+    h2.page-header Meeting Rooms
+  .row
+    .col-lg-6
+      form(method='post', action='/meetings/create')
+        .form-group
+          label Name
+          input.form-control(name='meetname', type='text', placeholder='Enter a meeting room name')
+        .form-group
+          label Building
+          select.form-control(name='meetbuilding')
+            option(selected disabled) Pick a building
+            option(value='2 Venture Road') 2 Venture Road
+            option(value='1 Venture Road') 1 Venture Road
+            option(value='The Paddock') The Paddock
+            option(value='3 Benham Road') 3 Benham Road
+            option(value='4 Benham Road') 4 Benham Road
+            option(value='5 Benham Road') 5 Benham Road
+            option(value='Alpha House') Alpha House
+            option(value='Delta House') Delta House
+            option(value='Epsilon House') Epsilon House
+            option(value='Gamma House') Gamma House
+            option(value='Kenneth Dibben House') Kenneth Dibben House
+            option(value='Phi House') Phi House
+            option(value='University Parkway') University Parkway
+        .form-group
+          label Room Number
+          input.form-control(name='meetroom', type='text', placeholder='Enter Room Number')
+        input.btn.btn-primary.form-control.add-comp-btn(type='submit', name='submit',value='Add Meeting Room')
+    .col-lg-6
+      div.table-responsive
+        table.table
+          thead
+            tr
+              th Name
+              th Building
+              th Room
+              th Action
+          tbody
+            for todo in todos
+              tr
+                td.align-middle #{todo.meetname}
+                td.align-middle #{todo.compbuilding}
+                td.align-middle #{todo.comproom}
+                td 
+                  form(action='/meetings/destroy/#{todo._id}', method='post')
+                    input.btn.btn-danger(type='submit', value='Delete')

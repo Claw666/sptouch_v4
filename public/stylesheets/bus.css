@@ -1,0 +1,33 @@
+.trans-container {
+  height: 200px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+.trans-container h3 {
+  font-size: 2em;
+}
+
+.trans-container h4 {
+  font-size: 1.5em;
+}
+
+.trans-container p {
+  font-size: 1.4em;
+}
+
+.box-container{
+    display:flex;
+    justify-content: center;
+}
+.fromSP-box, .fromCH-box {
+  width: 50%;
+  margin-top: 4%;
+}
+
+.col-3 {
+  width: 33%;
+  padding: 0 10px;
+}
