@@ -29,7 +29,8 @@ body {
 .logo {
   height: 7vw;
   width: 50%;
-  background-image: url(http://csongorkocsis.me/sptouch/assets/img/southampton-science-park.png);
+  
+  background-image: url(/uploads/core/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: left;

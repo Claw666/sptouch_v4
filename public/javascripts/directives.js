@@ -58,6 +58,16 @@ angular.module('angularApp').directive('svgMapKenneth', ['$compile', function ($
     }
 }]);
 
+angular.module('angularApp').directive('svgMapThreeVenture', ['$compile', function ($compile) {
+    return {
+        restrict: 'A',
+        templateUrl: '/uploads/maps/3vr.svg',
+        link: function (scope, element, attrs) {
+            
+        }
+    }
+}]);
+
 angular.module('angularApp').directive('svgMapTransport', ['$compile', function ($compile) {
     return {
         restrict: 'A',
